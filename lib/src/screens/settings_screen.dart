@@ -161,48 +161,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     padding: const EdgeInsets.only(
                         top: 15, left: 8, right: 8, bottom: 8),
                     child: Text(
-                      "Weather Notifications",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(8),
-                        topRight: Radius.circular(8),
-                        bottomLeft: Radius.circular(8),
-                        bottomRight: Radius.circular(8),
-                      ),
-                      color: Colors.black.withOpacity(0.1),
-                    ),
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "Notification:",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                        Switch(
-                          value: val,
-                          onChanged: (newVal) {
-                            onSwitchValueChanged(newVal);
-                          },
-                          activeColor: Colors.blue,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 15, left: 8, right: 8, bottom: 8),
-                    child: Text(
                       " ",
                     ),
                   ),

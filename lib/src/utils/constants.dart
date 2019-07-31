@@ -8,7 +8,7 @@ enum AlertAction {
   disagree,
   agree,
 }
-// const String apiURL = "http://127.0.0.1:1234/auth/api/account/users";
+
 const String apiURL = "https://reqres.in/api/users/2";
 const bool devMode = false;
 const double textScaleFactor = 1.0;

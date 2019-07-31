@@ -12,7 +12,5 @@ class Routes {
     '/settings': (context) => SettingsScreen(),
     '/checkweather': (context) => SearchWeatherScreen(),
     '/login': (BuildContext context) => LoginPage(),
-    // '/signup': (BuildContext context) => new SignUpScreen(),
-    // '/signup2': (BuildContext context) => new CompleteSignUpScreen(),
   };
 }

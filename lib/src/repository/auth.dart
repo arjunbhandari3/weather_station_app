@@ -13,19 +13,8 @@ import 'package:weather_station/src/api/data_api_client.dart';
 class AuthModel extends Model {
   String errorMessage = "";
 
-  // bool _rememberMe = false;
   bool _stayLoggedIn = true;
   User _user;
-
-  // bool get rememberMe => _rememberMe;
-
-  // void handleRememberMe(bool value) {
-  //   _rememberMe = value;
-  //   notifyListeners();
-  //   SharedPreferences.getInstance().then((prefs) {
-  //     prefs.setBool("remember_me", value);
-  //   });
-  // }
 
   bool get stayLoggedIn => _stayLoggedIn;
 
@@ -39,12 +28,6 @@ class AuthModel extends Model {
 
   void loadSettings() async {
     var _prefs = await SharedPreferences.getInstance();
-    // try {
-    //   _rememberMe = _prefs.getBool("remember_me") ?? false;
-    // } catch (e) {
-    //   print(e);
-    //   _rememberMe = false;
-    // }
     try {
       _stayLoggedIn = _prefs.getBool("stay_logged_in") ?? false;
     } catch (e) {
@@ -91,13 +74,6 @@ class AuthModel extends Model {
 
     await Future.delayed(Duration(seconds: 3));
     print("Logging In => $_username, $_password");
-
-    // if (_rememberMe) {
-    //   SharedPreferences.getInstance().then((prefs) {
-    //     prefs.setString("saved_username", _username);
-    //   });
-    // }
-
     // Get Info For User
     User _newUser = await getInfo(uuid.v4().toString());
     if (_newUser != null) {

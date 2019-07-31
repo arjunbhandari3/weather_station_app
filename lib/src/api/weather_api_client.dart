@@ -10,12 +10,10 @@ class WeatherApiClient {
   final http.Client httpClient;
 
   WeatherApiClient({@required this.httpClient, this.apiKey})
-      : assert(httpClient != null),
-        assert(apiKey != null);
+      : assert(httpClient != null);
 
   Future<Weather> getWeatherData(String cityName) async {
-    final url = "mongodb+srv://Ashish:weather321@cluster0-hyk5s.mongodb.net/test?retryWrites=true&w=majority";
-    // final url = '$baseUrl/data/2.5/weather?q=$cityName&appid=$apiKey';
+    final url = '$baseUrl/data/2.5/weather?q=$cityName&appid=$apiKey';
     print('fetching $url');
     final res = await this.httpClient.get(url);
     if (res.statusCode != 200) {
@@ -24,6 +22,7 @@ class WeatherApiClient {
     final weatherJson = json.decode(res.body);
     return Weather.fromJson(weatherJson);
   }
+
   Future<List<Weather>> getForecast(String cityName) async {
     final url = '$baseUrl/data/2.5/forecast?q=$cityName&appid=$apiKey';
     print('fetching $url');
@@ -34,5 +33,17 @@ class WeatherApiClient {
     final forecastJson = json.decode(res.body);
     List<Weather> weathers = Weather.fromForecastJson(forecastJson);
     return weathers;
+  }
+}
+
+Future<Weather> fetchWeather() async {
+  final response = await http.get('http://www.weatherku.herokuapp.com/api');
+
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+    return Weather.fromJson(json.decode(response.body));
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post');
   }
 }
