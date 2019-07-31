@@ -5,9 +5,6 @@ import 'package:weather_station/src/widgets/appContainer.dart';
 import 'package:weather_station/src/repository/auth.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-// import 'ui/lockedscreen/home.dart';
-// import 'ui/lockedscreen/settings.dart';
-// import 'ui/signin/newaccount.dart';
 import 'package:weather_station/src/screens/login.dart';
 import 'package:weather_station/src/screens/home_screen.dart';
 void main() {
@@ -58,13 +55,6 @@ class _WeatherAppState extends State<WeatherApp> {
           },
         ),
         routes: Routes.mainRoute,
-        // routes: <String, WidgetBuilder>{
-        //   "/login": (BuildContext context) => LoginPage(),
-        //   "/menu": (BuildContext context) => Home(),
-        //   "/home": (BuildContext context) => Home(),
-        //   "/settings": (BuildContext context) => SettingsPage(),
-        //   "/create": (BuildContext context) => CreateAccount(),
-        // },
       ),
     );
   }
