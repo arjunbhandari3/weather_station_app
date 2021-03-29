@@ -47,16 +47,6 @@ class _SearchWeatherScreenState extends State<SearchWeatherScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Check Weather"),
-        actions: <Widget>[
-          new Container(
-            margin: const EdgeInsets.all(7.0),
-            child: new CircleAvatar(
-              backgroundImage: new AssetImage('assets/profile.JPG'),
-              radius: 22.0,
-              backgroundColor: Colors.grey,
-            ),
-          ),
-        ],
       ),
       body: Container(
         padding: EdgeInsets.only(left: 10, right: 10, top: 15),
