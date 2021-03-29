@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:weather_station/src/screens/routes.dart';
 import 'package:bloc/bloc.dart';
 import 'package:weather_station/src/widgets/appContainer.dart';
-import 'package:weather_station/src/repository/auth.dart';
-import 'package:scoped_model/scoped_model.dart';
-
-import 'package:weather_station/src/screens/login.dart';
 import 'package:weather_station/src/screens/home_screen.dart';
+
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
   runApp(AppStateContainer(child: WeatherApp()));
@@ -26,36 +23,16 @@ class WeatherApp extends StatefulWidget {
 }
 
 class _WeatherAppState extends State<WeatherApp> {
-  final AuthModel _auth = new AuthModel();
-
-  @override
-  void initState() {
-    try {
-      _auth.loadSettings();
-    } catch (e) {
-      print("Error Loading Settings: $e");
-    }
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return ScopedModel<AuthModel>(
-      model: _auth,
-      child: MaterialApp(
-        title: 'Weather Station',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: new ScopedModelDescendant<AuthModel>(
-          builder: (context, child, model) {
-            if (model?.user != null) return HomeScreen();
-            return LoginPage();
-          },
-        ),
-        routes: Routes.mainRoute,
+    return MaterialApp(
+      title: 'Weather Station',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: HomeScreen(),
+      routes: Routes.mainRoute,
     );
   }
 }
