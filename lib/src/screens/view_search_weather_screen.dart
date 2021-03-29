@@ -53,16 +53,6 @@ class _ViewSearchWeatherScreenState extends State<ViewSearchWeatherScreen>
     return Scaffold(
         appBar: AppBar(
           title: Text("View Weather Details"),
-          actions: <Widget>[
-            new Container(
-              margin: const EdgeInsets.all(7.0),
-              child: new CircleAvatar(
-                backgroundImage: new AssetImage('assets/profile.JPG'),
-                radius: 22.0,
-                backgroundColor: Colors.grey,
-              ),
-            ),
-          ],
         ),
         body: Material(
           child: Container(
